@@ -1,12 +1,16 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService) { }
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
+  getHello(): string { return 'Hola Mundo desde NestJs perú'; }
+
+  @Get('nuevo')
+  newEndPoint(): string { return 'endpoint nuevo' }
+
+  @Get('/ruta/')
+  ruta(): string { return 'con /sas/' }
 }
